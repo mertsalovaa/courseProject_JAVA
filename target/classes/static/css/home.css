@@ -1,0 +1,14 @@
+label {
+    font-family: 'Shippori Mincho B1', serif;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@500&display=swap');
+
+.row {
+    box-shadow: 0 0 10px lightslategray;
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    background-color: #f7f7f7a8;
+}

@@ -1,5 +1,6 @@
 package app;
 
+import app.seeder.FoodSeeder;
 import app.seeder.UserSeeder;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -15,10 +16,11 @@ public class Main {
     }
 
     @Bean
-    CommandLineRunner init(UserSeeder seederDb) {
+    CommandLineRunner init(UserSeeder seederDb, FoodSeeder foodSeeder) {
         return (args) -> {
             try {
                 seederDb.Seeder();
+                foodSeeder.Seeder();
             }
             catch(Exception ex) {
                 System.out.println("---- problem ------");

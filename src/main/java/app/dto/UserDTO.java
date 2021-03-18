@@ -1,48 +1,15 @@
-package app.entities;
-import app.dto.UserDTO;
+package app.dto;
 
-import javax.persistence.*;
-import java.util.Date;
-import java.util.List;
-import javax.validation.constraints.Size;
-
-@Entity
-public class User {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+public class UserDTO {
     private long id;
-
-    @Column(nullable=false)
     private String firstName;
-
-    @Column(nullable=false)
     private String lastName;
-
-    @Column(nullable = false)
-    private Date birthday;
-
-    @Column(nullable = false)
+    private String birthday;
     private String phone;
-
-    @Column(nullable=false)
     private String email;
-
-    @Column(nullable = false)
-    @Size(min=4)
     private String password;
-
-    @Column(nullable = false)
+    private String confirmPassword;
     private String address;
-
-    @ManyToMany(cascade=CascadeType.MERGE)
-    @JoinTable(
-            name="tblUserRoles",
-            joinColumns={@JoinColumn(name="USER_ID", referencedColumnName="id")},
-            inverseJoinColumns={@JoinColumn(name="ROLE_ID", referencedColumnName="id")})
-    private List<Role> roles;
-
-    public User() {
-    }
 
     public long getId() {
         return id;
@@ -68,12 +35,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
+    public String getBirthday() {
+        return birthday;
     }
 
-    public Date getBirthday() {
-        return birthday;
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
     }
 
     public String getPhone() {
@@ -100,19 +67,19 @@ public class User {
         this.password = password;
     }
 
-    public List<Role> getRoles() {
-        return roles;
-    }
-
-    public void setRoles(List<Role> roles) {
-        this.roles = roles;
-    }
-
     public String getAddress() {
         return address;
     }
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 }

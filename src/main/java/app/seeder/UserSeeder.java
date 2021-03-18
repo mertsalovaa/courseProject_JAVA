@@ -1,7 +1,6 @@
 package app.seeder;
 
 import app.constants.Roles;
-import app.entities.Address;
 import app.entities.Role;
 import app.entities.User;
 import app.repositories.RoleRepository;
@@ -12,7 +11,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.Arrays;
 import java.util.Calendar;
-import java.util.Date;
 
 @Service
 public class UserSeeder {
@@ -51,19 +49,14 @@ public class UserSeeder {
     public void SeedUser() {
         Calendar birth = Calendar.getInstance();
         int month = 3;
-        birth.set(2004, month, 10);
+        birth.set(2004, month-1, 10);
         if(userRepository.count()==0) {
             User user = new User();
             user.setFirstName("Admin");
             user.setLastName("Iryna");
             user.setEmail("admin@gmail.com");
             user.setBirthday(birth.getTime());
-            Address address = new Address();
-            address.setCountry("Ukraine");
-            address.setCity("Rivne");
-            address.setStreet("Soborna");
-            address.setHome("1");
-            user.setAddress(address);
+            user.setAddress("address");
             user.setPhone("+380678597324");
             user.setPassword(passwordEncoder.encode("123456"));
             user.setRoles(Arrays.asList(
