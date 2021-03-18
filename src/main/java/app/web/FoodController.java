@@ -79,6 +79,6 @@ public class FoodController {
         Category categ = new Category();
         categ.setName(category.getName());
         categoryRepository.save(categ);
-        return "/foods";
+        return "redirect:/foods";
     }
 }

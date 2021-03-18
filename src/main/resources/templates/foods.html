@@ -21,6 +21,7 @@
                                 <tr th:each="food : ${foods}">
                                     <td th:text="${food.name}"></td>
                                     <td th:text="${food.price}"></td>
+                                    <td th:each="category : ${food.categories}" th:text="${category.name}"></td>
 <!--                                    <td>-->
 <!--                                        <a th:href="@{/edit/{id}(id=${food.id})}" class="btn btn-warning mr-2">Edit</a>-->
 <!--                                        <a th:href="@{/delete/{id}(id=${food.id})}" class="btn btn-danger">Delete</a>-->
