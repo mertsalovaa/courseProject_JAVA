@@ -45,11 +45,10 @@
                         <div class="form-group">
                             <label class="font-style" for="category">Category</label>
                             <select class="custom-select" id="category" th:field="*{category}" >
-                                <option selected th:value="default" disabled>Check category ...</option>
                                 <option th:each="category : ${categories}" th:text="${category.name}" th:value="${category.name}"></option>
                             </select>
                         </div>
-                        <button class="btn btn-primary" type="submit">Add</button>
+                        <button class="btn btn-dark" type="submit">Add</button>
                     </form>
                 </div>
             </div>

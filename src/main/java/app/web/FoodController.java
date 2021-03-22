@@ -9,6 +9,8 @@ import app.repositories.CategoryRepository;
 import app.repositories.FoodRepository;
 import app.service.FoodService;
 import org.springframework.data.domain.Page;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -80,5 +82,11 @@ public class FoodController {
         categ.setName(category.getName());
         categoryRepository.save(categ);
         return "redirect:/foods";
+    }
+
+    @GetMapping("/categories")
+    private String showCategories(Model model) {
+        model.addAttribute("categories", categoryRepository.findAll());
+        return "categories";
     }
 }

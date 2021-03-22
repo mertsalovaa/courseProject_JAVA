@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout}">
+<head>
+    <title>Welcome to Our Site</title>
+</head>
+<body>
+
+<div layout:fragment="content">
+    <section class="my-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div th:switch="${categories}">
+                        <h2 th:case="null">No categories yet!</h2>
+                        <div th:case="*">
+                            <h2>Categories :</h2>
+                            <table class="table">
+                                <tbody>
+                                <tr th:each="categ : ${categories}">
+                                    <td th:text="${categ.name}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+
+                        </div>
+                        <p><a href="/foods">Back</a></p>
+                        <p><a href="/addCategory">Add new category</a></p>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+</body>
+</html>

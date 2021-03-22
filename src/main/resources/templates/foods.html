@@ -12,6 +12,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
+                    <p><a href="/categories">Show all categories</a></p>
                     <div th:switch="${foods}">
                         <h2 th:case="null">No foods yet!</h2>
                         <div th:case="*">
@@ -33,6 +34,8 @@
                         </div>
                         <p><a href="/addFood">Add new food</a></p>
                         <p><a href="/addCategory">Add new category</a></p>
+
+
                     </div>
                 </div>
             </div>
